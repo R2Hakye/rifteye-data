@@ -63,7 +63,8 @@
     <ul>
       <li>Card recognition runs <strong>entirely inside your browser</strong>. The video you watch is never uploaded anywhere.</li>
       <li>RiftEye has <strong>no account, no analytics, no ads and no tracking</strong>. It collects no personal data.</li>
-      <li>The only thing it downloads while you watch is <strong>card pictures from Riot Games' image server</strong>.</li>
+      <li>It downloads only <strong>card pictures</strong> from Riot Games' image server and, when a new set comes out,
+          <strong>updated card data</strong> from GitHub.</li>
       <li>Your settings stay <strong>on your computer</strong>. Removing the extension deletes them.</li>
     </ul>
   </div>
@@ -82,6 +83,12 @@
      with each request. The request names the card picture only. It does not say which stream you are watching.
      Riot's own <a href="https://www.riotgames.com/en/privacy-notice">privacy notice</a> covers that server.
      RiftEye keeps the pictures in memory and does not save them.</p>
+  <p>A few times a day RiftEye checks GitHub (<code>github.com</code>, which serves the files from
+     <code>release-assets.githubusercontent.com</code>) for updated card data, and downloads it when a new set comes out.
+     GitHub receives your IP address and ordinary browser information, as with any download. The request is the same
+     for everyone and says nothing about you or what you watch.
+     GitHub's <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">privacy statement</a>
+     covers that server.</p>
   <p>Nothing else is sent. There are no analytics, crash reports or usage statistics.</p>
   <p><em>Developer setting:</em> if you change “Card engine” to “Local server”, the pictures described above go to a program
      on your own computer (<code>localhost</code>) instead of the built-in engine. They still never leave your computer.</p>
@@ -93,6 +100,7 @@
     <tbody>
       <tr><td>Your settings (on/off, tooltip options, which engine to use)</td><td>Browser extension storage, on this computer</td><td>Until you change them or remove the extension</td></tr>
       <tr><td>The table area you marked, for each Twitch channel or YouTube video, labelled with the channel name or video ID</td><td>Browser extension storage, on this computer</td><td>Until you remove the extension</td></tr>
+      <tr><td>Updated card data downloaded from GitHub</td><td>Browser extension cache, on this computer</td><td>Until a newer set replaces it or you remove the extension</td></tr>
       <tr><td>Decklists you paste and the cards named so far</td><td>Memory only</td><td>Until the browser closes</td></tr>
     </tbody>
   </table>
@@ -103,7 +111,8 @@
   <ul>
     <li>We do not collect, sell, rent or share personal data. We have none to share.</li>
     <li>We do not show ads or use data for advertising, profiling or credit decisions.</li>
-    <li>We do not load or run code from the internet. All of RiftEye's code ships inside the extension.</li>
+    <li>We do not load or run code from the internet. All of RiftEye's code ships inside the extension; the card data
+        it downloads is data only, checked against published checksums.</li>
   </ul>
   <p>RiftEye's use of information complies with the
      <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq">Chrome Web Store User Data Policy</a>,
@@ -113,6 +122,7 @@
   <ul>
     <li><strong>Access to twitch.tv and youtube.com</strong>: to show the overlay and read the video's table area.</li>
     <li><strong>Access to cmsassets.rgpub.io</strong>: to download card pictures for the tooltips.</li>
+    <li><strong>Access to RiftEye's data on github.com and githubusercontent.com</strong>: to download updated card data.</li>
     <li><strong>Storage</strong>: to remember your settings and table areas on this computer.</li>
     <li><strong>Offscreen document</strong>: to run the recognition engine in the background, once for all tabs.</li>
   </ul>
