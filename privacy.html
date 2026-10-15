@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RiftEye Privacy Policy</title>
+<meta name="description" content="What the RiftEye browser extension reads, what it keeps, and what it sends.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23262c52'/%3E%3Cpath d='M3 16Q16 4 29 16Q16 28 3 16Z' fill='%230c0e1a' stroke='%23ffd479' stroke-width='2.4'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%235ad1ff'/%3E%3Crect x='14' y='13' width='4' height='6' rx='1' fill='%230c0e1a'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #f7f7fa; --surface: #ffffff; --text: #1b1d29; --muted: #5d6175; --line: #e2e3ea;
+    --accent: #1f7fc4; --gold: #9a6a00; --chip: #eef5fb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12131c; --surface: #1b1d29; --text: #ececf1; --muted: #a9adbb; --line: #2c2f42;
+      --accent: #5ad1ff; --gold: #ffd479; --chip: #1f2a3a;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12131c; --surface: #1b1d29; --text: #ececf1; --muted: #a9adbb; --line: #2c2f42;
+    --accent: #5ad1ff; --gold: #ffd479; --chip: #1f2a3a;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 16px/1.6 system-ui, -apple-system, "Segoe UI", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 64px; }
+  header { display: flex; gap: 14px; align-items: center; margin-bottom: 8px; }
+  header svg { flex: none; }
+  h1 { font-size: 1.9rem; line-height: 1.2; margin: 0; }
+  .date { color: var(--muted); margin: 0 0 28px; }
+  h2 { font-size: 1.15rem; margin: 32px 0 8px; }
+  p, li { color: var(--text); }
+  ul { padding-left: 1.2em; }
+  li { margin: 4px 0; }
+  .summary { background: var(--surface); border: 1px solid var(--line); border-radius: 12px; padding: 4px 20px 8px; }
+  .summary li::marker { color: var(--accent); }
+  code { background: var(--chip); padding: 1px 5px; border-radius: 4px; font-size: .92em; overflow-wrap: anywhere; }
+  table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--line);
+          border-radius: 12px; overflow: hidden; font-size: .95rem; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; font-size: .85rem; text-transform: uppercase; letter-spacing: .04em; }
+  tr:last-child td { border-bottom: 0; }
+  .wrap { overflow-x: auto; }
+  .todo { color: var(--gold); font-weight: 600; }
+  a { color: var(--accent); }
+  footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: .88rem; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <svg width="44" height="44" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#262c52"/><path d="M3 16Q16 4 29 16Q16 28 3 16Z" fill="#0c0e1a" stroke="#ffd479" stroke-width="2.4"/><circle cx="16" cy="16" r="6" fill="#5ad1ff"/><rect x="14" y="13" width="4" height="6" rx="1" fill="#0c0e1a"/></svg>
+    <h1>RiftEye Privacy Policy</h1>
+  </header>
+  <p class="date">Effective 15 October 2026</p>
+
+  <p>RiftEye is a browser extension that names the Riftbound cards shown on Twitch and YouTube streams and shows
+     a tooltip with the card when you point at it. This page explains what it reads, what it keeps and what it sends.</p>
+
+  <div class="summary">
+    <h2>In short</h2>
+    <ul>
+      <li>Card recognition runs <strong>entirely inside your browser</strong>. The video you watch is never uploaded anywhere.</li>
+      <li>RiftEye has <strong>no account, no analytics, no ads and no tracking</strong>. It collects no personal data.</li>
+      <li>The only thing it downloads while you watch is <strong>card pictures from Riot Games' image server</strong>.</li>
+      <li>Your settings stay <strong>on your computer</strong>. Removing the extension deletes them.</li>
+    </ul>
+  </div>
+
+  <h2>What RiftEye reads</h2>
+  <p>While RiftEye is switched on, the tab is visible and you have marked the table area of a stream, it takes still
+     pictures of that area of the video, about once a second. It also reads a small region when you ask it to name a
+     particular card. These pictures go to the recognition engine, which is part of the extension and runs on your
+     computer. They are processed in memory and then discarded. They are never saved and never sent off your computer.</p>
+  <p>RiftEye runs only on <code>twitch.tv</code> and <code>youtube.com</code>. It does not read the chat, your Twitch or
+     YouTube account, your history or any other site.</p>
+
+  <h2>What RiftEye sends over the internet</h2>
+  <p>Card pictures for the tooltips are downloaded from Riot Games' image server, <code>cmsassets.rgpub.io</code>.
+     As with any picture a website loads, Riot's server receives your IP address and ordinary browser information
+     with each request. The request names the card picture only. It does not say which stream you are watching.
+     Riot's own <a href="https://www.riotgames.com/en/privacy-notice">privacy notice</a> covers that server.
+     RiftEye keeps the pictures in memory and does not save them.</p>
+  <p>Nothing else is sent. There are no analytics, crash reports or usage statistics.</p>
+  <p><em>Developer setting:</em> if you change “Card engine” to “Local server”, the pictures described above go to a program
+     on your own computer (<code>localhost</code>) instead of the built-in engine. They still never leave your computer.</p>
+
+  <h2>What RiftEye keeps on your computer</h2>
+  <div class="wrap">
+  <table>
+    <thead><tr><th>What</th><th>Where</th><th>How long</th></tr></thead>
+    <tbody>
+      <tr><td>Your settings (on/off, tooltip options, which engine to use)</td><td>Browser extension storage, on this computer</td><td>Until you change them or remove the extension</td></tr>
+      <tr><td>The table area you marked, for each Twitch channel or YouTube video, labelled with the channel name or video ID</td><td>Browser extension storage, on this computer</td><td>Until you remove the extension</td></tr>
+      <tr><td>Decklists you paste and the cards named so far</td><td>Memory only</td><td>Until the browser closes</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>None of this is synchronised to your Google account or sent to us. To erase all of it, remove the extension.</p>
+
+  <h2>What we do not do</h2>
+  <ul>
+    <li>We do not collect, sell, rent or share personal data. We have none to share.</li>
+    <li>We do not show ads or use data for advertising, profiling or credit decisions.</li>
+    <li>We do not load or run code from the internet. All of RiftEye's code ships inside the extension.</li>
+  </ul>
+  <p>RiftEye's use of information complies with the
+     <a href="https://developer.chrome.com/docs/webstore/program-policies/user-data-faq">Chrome Web Store User Data Policy</a>,
+     including the Limited Use requirements.</p>
+
+  <h2>Permissions, and why</h2>
+  <ul>
+    <li><strong>Access to twitch.tv and youtube.com</strong>: to show the overlay and read the video's table area.</li>
+    <li><strong>Access to cmsassets.rgpub.io</strong>: to download card pictures for the tooltips.</li>
+    <li><strong>Storage</strong>: to remember your settings and table areas on this computer.</li>
+    <li><strong>Offscreen document</strong>: to run the recognition engine in the background, once for all tabs.</li>
+  </ul>
+
+  <h2>Children</h2>
+  <p>RiftEye does not knowingly collect information from anyone, including children under 13.</p>
+
+  <h2>Changes</h2>
+  <p>If RiftEye ever starts sending or keeping anything new, this page will be updated before that version is released,
+     and the date at the top will change.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <span class="todo">[contact email]</span></p>
+
+  <footer>
+    RiftEye is an unofficial fan project. RiftEye isn't endorsed by Riot Games and doesn't reflect the views or opinions of
+    Riot Games or anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated
+    properties are trademarks or registered trademarks of Riot Games, Inc.
+  </footer>
+</main>
+</body>
+</html>
