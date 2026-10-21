@@ -263,6 +263,7 @@
       <p class="sub" style="margin-left:auto;margin-right:auto">RiftEye is new: tell us what it gets wrong and what you'd like next.</p>
       <div class="cta">
         <a class="btn primary" id="discord" href="#" hidden>Join the Discord</a>
+        <a class="btn" id="instagram" href="#" hidden>Instagram</a>
         <a class="btn" id="x" href="#" hidden>Follow on X</a>
         <a class="btn" href="mailto:rifteye@proton.me">rifteye@proton.me</a>
       </div>
@@ -273,7 +274,7 @@
 <footer>
   <div class="wrap">
     <a class="logo" href="#"><img src="/assets/favicon.png" alt=""> RiftEye</a>
-    <div class="fl"><a href="/support.html">Help</a><a href="/privacy.html">Privacy</a><a class="store" href="#">Chrome Web Store</a><a href="https://discord.gg/JdSgbwhDXU" target="_blank" rel="noopener">Discord</a><a href="mailto:rifteye@proton.me">Contact</a></div>
+    <div class="fl"><a href="/support.html">Help</a><a href="/privacy.html">Privacy</a><a class="store" href="#">Chrome Web Store</a><a href="https://discord.gg/JdSgbwhDXU" target="_blank" rel="noopener">Discord</a><a href="https://www.instagram.com/rifteye/" target="_blank" rel="noopener">Instagram</a><a href="mailto:rifteye@proton.me">Contact</a></div>
     <p>RiftEye is an unofficial fan project. RiftEye isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or
        anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks
        or registered trademarks of Riot Games, Inc. Card names, text and art belong to Riot Games.</p>
@@ -286,11 +287,12 @@ const LINKS = {
   store: "https://chromewebstore.google.com/detail/rifteye-card-viewer-for-r/enimddhokmfinmbpfkjhijaahdcopnll",      // Chrome Web Store page of RiftEye
   discord: "https://discord.gg/JdSgbwhDXU",    // Discord invite
   x: "",          // X profile
+  instagram: "https://www.instagram.com/rifteye/",
 };
 for (const a of document.querySelectorAll("a.store")) {
   if (LINKS.store) { a.href = LINKS.store; a.target = "_blank"; a.rel = "noopener"; } else a.href = "support.html";
 }
-for (const k of ["discord", "x"]) if (LINKS[k]) { const a = document.getElementById(k); a.href = LINKS[k]; a.hidden = false; }
+for (const k of ["discord", "x", "instagram"]) if (LINKS[k]) { const a = document.getElementById(k); a.href = LINKS[k]; a.hidden = false; }
 
 // The demo board: real cards, outlined and named as RiftEye does, with its tooltip
 const SPOTS = [[9, 20, -3], [24, 18, 2], [39, 21, -1], [62, 19, 3], [16, 60, 2], [44, 62, -2], [70, 59, 1]];   // left %, top %, tilt
