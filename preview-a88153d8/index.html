@@ -305,7 +305,7 @@ fetch("/assets/demo-cards.json").then((r) => r.json()).then((cards) => {
   cards.slice(0, SPOTS.length).forEach((c, i) => {
     const [x, y, r] = SPOTS[i], el = document.createElement("div");
     el.className = "c"; el.style.left = x + "%"; el.style.top = y + "%"; el.style.transform = `rotate(${r}deg)`;
-    el.innerHTML = `<img src="${esc(/^https?:/.test(c.image_url) ? c.image_url : "/" + c.image_url)}" alt="" loading="lazy"><span class="pill">${esc(c.name)}</span>`;
+    el.innerHTML = `<img src="${esc(/^https?:/.test(c.image_url) ? c.image_url : "/" + c.image_url)}" alt=""><span class="pill">${esc(c.name)}</span>`;
     const show = () => {
       if (hovered) hovered.classList.remove("on");
       hovered = el; el.classList.add("on");
