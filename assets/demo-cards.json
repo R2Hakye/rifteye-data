@@ -1,0 +1,105 @@
+[
+ {
+  "name": "Jinx - Rebel",
+  "type": "Unit",
+  "supertype": "Champion",
+  "domains": [
+   "Chaos"
+  ],
+  "rarity": "Epic",
+  "set": "Origins",
+  "energy": 5,
+  "might": 5,
+  "text": "When you discard one or more cards, ready me and give me +1 [might] this turn.",
+  "flavour": "Rules are made to be broken. Like buildings! Or people!",
+  "image_url": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/a7fe105f40df66525be51bd18e25506945a7b027-744x1039.png?accountingTag=RB"
+ },
+ {
+  "name": "Ahri - Alluring",
+  "type": "Unit",
+  "supertype": "Champion",
+  "domains": [
+   "Calm"
+  ],
+  "rarity": "Rare",
+  "set": "Origins",
+  "energy": 5,
+  "might": 4,
+  "text": "When I hold, you score 1 point.",
+  "flavour": "Remember this moment.",
+  "image_url": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/fabbcc2f83f397cf07299236a702db05a151053b-744x1039.png?accountingTag=RB"
+ },
+ {
+  "name": "Yasuo - Windrider",
+  "type": "Unit",
+  "supertype": "Champion",
+  "domains": [
+   "Chaos"
+  ],
+  "rarity": "Epic",
+  "set": "Origins",
+  "energy": 5,
+  "might": 4,
+  "text": "[Ganking] (I can move from battlefield to battlefield.)The third time I move in a turn, you score 1 point.",
+  "flavour": "I will follow this path until the end.",
+  "image_url": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/f5ba378ce4dad16d17e001814e091d5f484f2681-744x1039.png?accountingTag=RB"
+ },
+ {
+  "name": "Darius - Executioner",
+  "type": "Unit",
+  "supertype": "Champion",
+  "domains": [
+   "Order"
+  ],
+  "rarity": "Epic",
+  "set": "Origins",
+  "energy": 6,
+  "might": 6,
+  "text": "[Legion] — When you play me, ready me. (Get the effect if you've played another card this turn)Other friendly units have +1 [might] here.",
+  "flavour": "They will regret opposing me.",
+  "image_url": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/7b71cf13a07074a6eccbe88ae6c74133d989cb68-744x1039.png?accountingTag=RB"
+ },
+ {
+  "name": "Vi - Peacekeeper",
+  "type": "Unit",
+  "supertype": "Champion",
+  "domains": [
+   "Order"
+  ],
+  "rarity": "Rare",
+  "set": "Unleashed",
+  "energy": 5,
+  "might": 5,
+  "text": "[Ambush] (You may play me as a [Reaction] to a battlefield where you have units.)When I attack, [Stun] an enemy unit here. (It doesn't deal combat damage this turn.)",
+  "flavour": "I'm my own backup.",
+  "image_url": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/51610bbdecd77b15f58b9a968611e536ebdf445e-744x1039.png?accountingTag=RB"
+ },
+ {
+  "name": "Death from Below",
+  "type": "Spell",
+  "supertype": "Signature",
+  "domains": [
+   "Fury",
+   "Chaos"
+  ],
+  "rarity": "Epic",
+  "set": "Unleashed",
+  "energy": 4,
+  "text": "Kill a unit at a battlefield. Then, if it had 3 [might] or less, you may play this from your trash for [rune rainbow].",
+  "flavour": "Keep a man down long enough, and the gutter becomes his kingdom.\"\r\n \r\n- Pyke",
+  "image_url": "https://cmsassets.rgpub.io/sanity/images/dsfx7636/game_data_live/17d93a11a252287e3b0f4bbe32722ecc9469ec66-744x1039.png?accountingTag=RB"
+ },
+ {
+  "name": "Akali, Brash",
+  "type": "Unit",
+  "domains": [
+   "Fury"
+  ],
+  "rarity": "Rare",
+  "set": "Radiance",
+  "energy": 5,
+  "might": 5,
+  "text": "The first time I move each turn, [Add] [1] [Rune].\nThe second time I move each turn, banish the top card of your Main Deck. Until your next Ending Phase, you may play that card. (You still pay its costs.)",
+  "image_url": "cards/rad-015.jpg"
+ }
+]
