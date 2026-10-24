@@ -67,47 +67,64 @@
   .card h3 { margin: 0 0 6px; font-size: 1.08rem; }
   .card p { margin: 0; color: var(--muted); font-size: .97rem; }
 
-  /* demo */
-  .demo { display: grid; grid-template-columns: 1fr 260px; gap: 18px; align-items: start; }
+  /* the table in the hero: a play mat, cards (some turned sideways), sleeves, rune piles, dice */
+  .hero .wrap { grid-template-columns: .9fr 1.1fr; }
   .stage { position: relative; }
-  .board { position: relative; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; border: 1px solid var(--line-2);
-           background: radial-gradient(60% 70% at 50% 50%, #1b3150, #0b1526 75%), #0b1526; box-shadow: 0 30px 70px rgba(0, 0, 0, .45); }
-  .board::before { content: ""; position: absolute; inset: 6% 4%; border: 1px dashed rgba(130, 175, 240, .18); border-radius: 12px; }
-  .board::after { content: ""; position: absolute; left: 4%; right: 4%; top: 50%; border-top: 1px solid rgba(231, 184, 74, .25); }
-  .live { position: absolute; left: 14px; top: 12px; z-index: 3; display: flex; gap: 8px; align-items: center; font-size: .8rem; color: #fff; }
-  .live b { background: #e5484d; border-radius: 4px; padding: 1px 6px; font-size: .72rem; letter-spacing: .05em; }
-  .badge { position: absolute; left: 14px; bottom: 12px; z-index: 3; display: flex; gap: 6px; align-items: center; padding: 3px 10px 3px 5px;
-           border-radius: 999px; background: rgba(8, 14, 26, .92); border: 1px solid var(--line-2); font-size: .78rem; color: var(--muted); }
+  .board { position: relative; aspect-ratio: 1; border-radius: 18px; overflow: hidden; border: 1px solid var(--line-2);
+           background: linear-gradient(90deg, #36363b 0 40%, #8d8b95 40% 60%, #36363b 60%); box-shadow: 0 30px 70px rgba(0, 0, 0, .5); }
+  .board::before { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 60% at 50% 40%, rgba(255, 255, 255, .06), transparent 70%),
+                   radial-gradient(120% 100% at 50% 50%, transparent 60%, rgba(0, 0, 0, .35)); pointer-events: none; }
+  .live { position: absolute; left: 50%; transform: translateX(-50%); top: 10px; z-index: 6; white-space: nowrap; display: flex; gap: 8px; align-items: center; font-size: .78rem; color: #fff;
+          text-shadow: 0 1px 3px #000; }
+  .live b { background: #e5484d; border-radius: 4px; padding: 1px 6px; font-size: .7rem; letter-spacing: .05em; text-shadow: none; }
+  .badge { position: absolute; left: 50%; transform: translateX(-50%); bottom: 10px; z-index: 6; white-space: nowrap; display: flex; gap: 6px; align-items: center; padding: 3px 10px 3px 5px;
+           border-radius: 999px; background: rgba(8, 14, 26, .92); border: 1px solid var(--line-2); font-size: .76rem; color: var(--muted); }
   .badge img { width: 20px; height: 20px; border-radius: 50%; }
-  .c { position: absolute; width: 11%; aspect-ratio: 744 / 1039; border-radius: 6px; cursor: pointer; transition: transform .15s; }
-  .c img { width: 100%; height: 100%; object-fit: cover; border-radius: 6px; display: block; box-shadow: 0 8px 18px rgba(0, 0, 0, .5); }
-  .c::after { content: ""; position: absolute; inset: -3px; border-radius: 8px; border: 1.4px solid rgba(236, 246, 255, .95);
-              box-shadow: 0 0 12px rgba(110, 190, 255, .9), inset 0 0 6px rgba(110, 190, 255, .4); pointer-events: none; transition: .15s; }
-  .c .pill { position: absolute; left: 50%; bottom: calc(100% + 6px); transform: translateX(-50%); white-space: nowrap; max-width: 160%;
-             overflow: hidden; text-overflow: ellipsis; font-size: .68rem; font-weight: 600; padding: 1px 8px 1px 16px; border-radius: 9px;
-             background: rgba(8, 14, 26, .86); border: 1px solid var(--line-2); color: var(--text); pointer-events: none; }
+  .c { position: absolute; width: 11.2%; aspect-ratio: 744 / 1039; transform: translate(-50%, -50%) rotate(var(--r, 0deg)); cursor: pointer; }
+  .c.t, .c.l { width: 15.4%; aspect-ratio: 1039 / 744; }
+  .c .face { position: absolute; inset: 0; border-radius: 5px; }
+  .c.t .face { inset: auto; left: 50%; top: 50%; width: calc(100% * 744 / 1039); height: calc(100% * 1039 / 744); transform: translate(-50%, -50%) rotate(90deg); }
+  .c img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; display: block; box-shadow: 0 6px 14px rgba(0, 0, 0, .55); }
+  .c .face::after { content: ""; position: absolute; inset: -3px; border-radius: 7px; border: 1.3px solid rgba(236, 246, 255, .95);
+                    box-shadow: 0 0 11px rgba(110, 190, 255, .9), inset 0 0 5px rgba(110, 190, 255, .4); pointer-events: none; transition: .15s; }
+  .c.on .face::after { border-color: #fff0c8; box-shadow: 0 0 20px rgba(231, 184, 74, 1), inset 0 0 8px rgba(231, 184, 74, .5); }
+  .c .pill { position: absolute; left: 50%; bottom: calc(100% + 5px); transform: translateX(-50%); white-space: nowrap; max-width: 170%;
+             overflow: hidden; text-overflow: ellipsis; font-size: .62rem; font-weight: 600; padding: 1px 7px 1px 15px; border-radius: 9px;
+             background: rgba(8, 14, 26, .88); border: 1px solid var(--line-2); color: var(--text); pointer-events: none; z-index: 4; }
   .c .pill::before { content: ""; position: absolute; left: 6px; top: 50%; width: 5px; height: 5px; margin-top: -2.5px; border-radius: 50%; background: var(--ice); }
-  .c.on::after { border-color: #fff0c8; box-shadow: 0 0 20px rgba(231, 184, 74, 1), inset 0 0 8px rgba(231, 184, 74, .5); }
-  .board[data-outlines="hover"] .c:not(.on)::after, .board[data-outlines="off"] .c::after { opacity: 0; }
+  .board[data-outlines="hover"] .c:not(.on) .face::after, .board[data-outlines="off"] .c .face::after { opacity: 0; }
   .board[data-outlines="hover"] .pill, .board[data-outlines="off"] .pill, .board[data-labels="off"] .pill { display: none; }
-  .tip { position: absolute; z-index: 5; display: none; gap: calc(12px * var(--tip)); width: calc(380px * var(--tip)); max-width: 70%;
+  .sleeve { position: absolute; transform: translate(-50%, -50%) rotate(var(--r, 0deg)); border-radius: 5px; pointer-events: none;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, .45), inset 0 -6px 0 rgba(0, 0, 0, .15); }
+  .die { position: absolute; width: 3.2%; aspect-ratio: 1; transform: translate(-50%, -50%) rotate(var(--r, 0deg)); border-radius: 4px; z-index: 3;
+         display: grid; place-items: center; font: 800 clamp(8px, 1.3vw, 15px)/1 system-ui, sans-serif; pointer-events: none; box-shadow: 0 2px 5px rgba(0, 0, 0, .5); }
+  .tip { position: absolute; z-index: 8; display: none; gap: calc(12px * var(--tip)); width: calc(360px * var(--tip)); max-width: 92%;
          padding: calc(10px * var(--tip)); border-radius: 14px; background: rgba(9, 15, 27, .97); border: 1px solid var(--line-2);
          box-shadow: 0 12px 34px rgba(0, 0, 0, .6), 0 0 22px rgba(63, 127, 224, .22); pointer-events: none; --tip: 1; }
   .tip.show { display: flex; }
-  .tip img { width: calc(150px * var(--tip)); flex: none; border-radius: 9px; }
+  .tip img { width: calc(140px * var(--tip)); flex: none; align-self: flex-start; border-radius: 9px; }
   .tip .nm { font-weight: 700; font-size: calc(15px * var(--tip)); line-height: 1.25; }
   .tip .sb { color: var(--muted); font-size: calc(12px * var(--tip)); margin: 2px 0 6px; }
   .tip .st { display: flex; gap: 6px; margin-bottom: 6px; flex-wrap: wrap; }
   .tip .st span { background: #162640; border: 1px solid var(--line); border-radius: 6px; padding: 0 7px; font-size: calc(12px * var(--tip)); }
-  .tip .tx { font-size: calc(12.5px * var(--tip)); line-height: 1.45; }
+  .tip .tx { font-size: calc(12.5px * var(--tip)); line-height: 1.5; }
   .tip .tx b { color: var(--gold); }
   .tip .fl { color: #8b9ab3; font-style: italic; font-size: calc(12px * var(--tip)); margin-top: 6px; }
-  .controls { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
-  .controls h4 { margin: 0 0 8px; font-size: .75rem; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); }
-  .seg { display: flex; background: #0a1322; border: 1px solid var(--line-2); border-radius: 9px; padding: 2px; margin-bottom: 16px; }
-  .seg button { flex: 1; border: 0; background: none; color: var(--muted); font: inherit; font-size: .8rem; padding: 6px 0; border-radius: 7px; cursor: pointer; }
+  .tip .sym { display: inline-block; vertical-align: 1px; margin: 0 2px; font-weight: 700; line-height: 1; white-space: nowrap; }
+  .tip .sym.en { min-width: calc(17px * var(--tip)); height: calc(17px * var(--tip)); padding: 0 3px; border-radius: 999px; text-align: center;
+                 line-height: calc(17px * var(--tip)); font-size: calc(11px * var(--tip)); background: #e9eef7; color: #0b1322; }
+  .tip .sym.rn { padding: 1px 6px; border-radius: 6px; font-size: calc(11px * var(--tip)); color: #fff; background: #5d6b84; }
+  .tip .sym.fury { background: #c8323a; } .tip .sym.calm { background: #2f9a50; } .tip .sym.mind { background: #2f6fd6; }
+  .tip .sym.body { background: #d9761e; } .tip .sym.chaos { background: #7d3fc8; } .tip .sym.order { background: #c9a21f; color: #1b1400; }
+  .tip .sym.rainbow { background: linear-gradient(90deg, #c8323a, #d9761e, #c9a21f, #2f9a50, #2f6fd6, #7d3fc8); }
+  .tip .sym.ex { color: var(--gold); font-size: calc(14px * var(--tip)); }
+  .controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin-top: 14px; }
+  .controls label { display: flex; align-items: center; gap: 8px; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+  .seg { display: flex; background: #0a1322; border: 1px solid var(--line-2); border-radius: 9px; padding: 2px; }
+  .seg button { border: 0; background: none; color: var(--muted); font: inherit; font-size: .78rem; padding: 5px 10px; border-radius: 7px; cursor: pointer;
+                text-transform: none; letter-spacing: 0; font-weight: 500; }
   .seg button.on { color: #fff; background: linear-gradient(180deg, #3f7fe0, #2a58b0); }
-  .controls p { color: var(--dim); font-size: .85rem; margin: 0; }
+  .hint { color: var(--dim); font-size: .85rem; margin: 10px 0 0; }
 
   /* steps */
   .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; counter-reset: s; }
@@ -127,6 +144,13 @@
   footer .fl { display: flex; gap: 18px; flex-wrap: wrap; }
   footer a { color: var(--muted); text-decoration: none; } footer a:hover { color: var(--text); }
   footer p { margin: 0; flex-basis: 100%; }
+  .ico { width: 1.15em; height: 1.15em; flex: none; }
+  .btn.discord { background: #5865f2; border-color: transparent; color: #fff; }
+  .btn.discord:hover { background: #4752c4; }
+  .btn.instagram { background: linear-gradient(45deg, #f09433, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888); border-color: transparent; color: #fff; }
+  .btn.instagram:hover { filter: brightness(1.08); }
+  a.social { display: inline-flex; align-items: center; gap: 6px; }
+  nav .links a.social .ico { width: 1.25em; height: 1.25em; }
   [hidden] { display: none !important; }
 
   @media (max-width: 900px) {
@@ -140,7 +164,7 @@
     body { font-size: 16px; }
     .grid, .steps, .two { grid-template-columns: 1fr; }
     section { padding: 52px 0; }
-    .c { width: 13%; }
+
     .c .pill { display: none; }
     .tip { position: static; width: auto; max-width: none; margin-top: 12px; }   /* below the board on phones */
     .tip img { width: calc(110px * var(--tip)); }
@@ -153,7 +177,7 @@
 <nav>
   <div class="wrap">
     <a class="logo" href="#"><img src="/assets/favicon.png" alt=""> RiftEye</a>
-    <div class="links"><a href="#watch">Watch</a><a href="#demo">Demo</a><a href="#how">How it works</a><a href="#privacy">Privacy</a><a href="/support.html">Help</a><a href="https://discord.gg/JdSgbwhDXU" target="_blank" rel="noopener">Discord</a></div>
+    <div class="links"><a href="#watch">Watch</a><a href="#demo">Try it</a><a href="#how">How it works</a><a href="#privacy">Privacy</a><a href="/support.html">Help</a><a class="social" href="https://discord.gg/JdSgbwhDXU" target="_blank" rel="noopener" aria-label="Discord"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7ZM8.1 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7.8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg></a><a class="social" href="https://www.instagram.com/rifteye/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2ZM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></svg></a></div>
     <a class="btn primary store" href="#">Add to Chrome</a>
   </div>
 </nav>
@@ -168,11 +192,25 @@
            and see it full size: picture, cost, might and rules text.</p>
         <div class="cta">
           <a class="btn primary store" href="#">Add to Chrome, it's free</a>
-          <a class="btn" href="#demo">Try it on this page ↓</a>
+          <a class="btn" href="#demo">Try it: hover a card →</a>
         </div>
         <div class="note">No account. No ads. Runs entirely in your browser.</div>
       </div>
-      <img class="emblem" src="/assets/emblem.webp" alt="The RiftEye emblem: a golden eye surrounded by six gems in the domain colours" width="420" height="420">
+      <div id="demo">
+        <div class="stage">
+          <div class="board" id="board" data-outlines="all" data-labels="off">
+            <div class="live"><b>LIVE</b> Riftbound · table cam</div>
+            <div class="badge"><img src="/assets/favicon.png" alt=""><span id="named">RiftEye · named</span></div>
+          </div>
+          <div class="tip" id="tip"></div>
+        </div>
+        <div class="controls">
+          <label>Outlines <span class="seg" data-set="outlines"><button data-v="all" class="on">All</button><button data-v="hover">Hovered</button><button data-v="off">Off</button></span></label>
+          <label>Names <span class="seg" data-set="labels"><button data-v="on">On</button><button data-v="off" class="on">Off</button></span></label>
+          <label>Size <span class="seg" data-set="tip"><button data-v=".8">S</button><button data-v="1" class="on">M</button><button data-v="1.25">L</button><button data-v="1.5">XL</button></span></label>
+        </div>
+        <p class="hint">Hover a card (or tap it). The same choices are in RiftEye's menu.</p>
+      </div>
     </div>
   </header>
 
@@ -189,32 +227,6 @@
         <div class="card"><div class="ico">✨</div><h3>Radiance ready</h3><p>Every set, promos and tokens. New sets arrive automatically, without an update.</p></div>
         <div class="card"><div class="ico">🎛️</div><h3>Your way</h3><p>Outline every card, only the one you point at, or none. Pick the tooltip size. Runes optional.</p></div>
         <div class="card"><div class="ico">🔒</div><h3>Private by design</h3><p>Recognition runs on your computer. The video is never uploaded, and nothing is tracked.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section id="demo" class="alt">
-    <div class="wrap">
-      <div class="eyebrow">Try it</div>
-      <h2>Hover a card on this board.</h2>
-      <p class="sub">This is what RiftEye adds to a stream. Point at a card (or tap it on a phone).</p>
-      <div class="demo">
-        <div class="stage">
-          <div class="board" id="board" data-outlines="all" data-labels="on">
-            <div class="live"><b>LIVE</b> Riftbound · Radiance</div>
-            <div class="badge"><img src="/assets/favicon.png" alt=""><span id="named">RiftEye · 7 named</span></div>
-          </div>
-          <div class="tip" id="tip"></div>
-        </div>
-        <div class="controls">
-          <h4>Card outlines</h4>
-          <div class="seg" data-set="outlines"><button data-v="all" class="on">All</button><button data-v="hover">Hovered</button><button data-v="off">Off</button></div>
-          <h4>Card names</h4>
-          <div class="seg" data-set="labels"><button data-v="on" class="on">On</button><button data-v="off">Off</button></div>
-          <h4>Tooltip size</h4>
-          <div class="seg" data-set="tip"><button data-v=".8">S</button><button data-v="1" class="on">M</button><button data-v="1.25">L</button><button data-v="1.5">XL</button></div>
-          <p>The same choices are in RiftEye's menu.</p>
-        </div>
       </div>
     </div>
   </section>
@@ -262,8 +274,8 @@
       <h2>Questions, bugs or ideas?</h2>
       <p class="sub" style="margin-left:auto;margin-right:auto">RiftEye is new: tell us what it gets wrong and what you'd like next.</p>
       <div class="cta">
-        <a class="btn primary" id="discord" href="#" hidden>Join the Discord</a>
-        <a class="btn" id="instagram" href="#" hidden>Instagram</a>
+        <a class="btn discord" id="discord" href="#" hidden><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7ZM8.1 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7.8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg> Join the Discord</a>
+        <a class="btn instagram" id="instagram" href="#" hidden><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2ZM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></svg> Follow on Instagram</a>
         <a class="btn" id="x" href="#" hidden>Follow on X</a>
         <a class="btn" href="mailto:rifteye@proton.me">rifteye@proton.me</a>
       </div>
@@ -274,7 +286,7 @@
 <footer>
   <div class="wrap">
     <a class="logo" href="#"><img src="/assets/favicon.png" alt=""> RiftEye</a>
-    <div class="fl"><a href="/support.html">Help</a><a href="/privacy.html">Privacy</a><a class="store" href="#">Chrome Web Store</a><a href="https://discord.gg/JdSgbwhDXU" target="_blank" rel="noopener">Discord</a><a href="https://www.instagram.com/rifteye/" target="_blank" rel="noopener">Instagram</a><a href="mailto:rifteye@proton.me">Contact</a></div>
+    <div class="fl"><a href="/support.html">Help</a><a href="/privacy.html">Privacy</a><a class="store" href="#">Chrome Web Store</a><a class="social" href="https://discord.gg/JdSgbwhDXU" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7ZM8.1 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7.8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg> Discord</a><a class="social" href="https://www.instagram.com/rifteye/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2ZM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></svg> Instagram</a><a href="mailto:rifteye@proton.me">Contact</a></div>
     <p>RiftEye is an unofficial fan project. RiftEye isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or
        anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks
        or registered trademarks of Riot Games, Inc. Card names, text and art belong to Riot Games.</p>
@@ -294,45 +306,86 @@ for (const a of document.querySelectorAll("a.store")) {
 }
 for (const k of ["discord", "x", "instagram"]) if (LINKS[k]) { const a = document.getElementById(k); a.href = LINKS[k]; a.hidden = false; }
 
-// The demo board: real cards, outlined and named as RiftEye does, with its tooltip
-const SPOTS = [[9, 20, -3], [24, 18, 2], [39, 21, -1], [62, 19, 3], [16, 60, 2], [44, 62, -2], [70, 59, 1]];   // left %, top %, tilt
+// The table in the hero: the cards of a real game, laid out as on a stream's table camera (positions in % of the
+// mat; "t" = turned sideways, "l" = a battlefield, "p" = upright), outlined and named as RiftEye does, with its tooltip.
+const LAYOUT = [
+  ["left.0", 33.6, 7.8, 1, "t"], ["left.1", 33.7, 18.4, -1, "t"], ["runes.Body", 10.4, 28.5, 8, "t"],
+  ["left.2", 27.0, 36.6, 0, "p"], ["left.3", 27.4, 48.6, 0, "p"], ["left.4", 27.8, 62.4, 0, "p"],
+  ["battlefields.0", 11.8, 56.2, -14, "l"], ["left.5", 8.8, 91.7, 0, "t"],
+  ["right.0", 50.5, 36.6, 0, "p"], ["left.6", 43.2, 67.6, -2, "p"], ["right.1", 58.7, 65.0, 4, "p"],
+  ["right.6", 62.6, 76.8, -7, "p"], ["right.2", 59.4, 20.4, 1, "t"], ["right.3", 91.4, 29.5, 0, "t"],
+  ["right.4", 74.1, 37.2, 2, "t"], ["battlefields.1", 75.2, 49.9, 1, "l"], ["right.5", 75.2, 61.8, 1, "t"],
+  // rune piles: the lower runes first, so the top one lies over them
+  ["runes.Calm", 90.6, 52.4, 0, "t", 1], ["runes.Calm", 90.6, 50.2, 0, "t", 1], ["runes.Calm", 90.6, 48.0, 0, "t", 1], ["runes.Calm", 90.6, 44.2, 0, "t"],
+  ["runes.Mind", 90.6, 78.0, 0, "t", 1], ["runes.Calm", 90.6, 74.6, 0, "t", 1], ["runes.Mind", 90.6, 71.4, 0, "t", 1], ["runes.Calm", 90.6, 67.6, 0, "t", 1], ["runes.Calm", 90.6, 63.4, 0, "t"],
+];
+const SLEEVES = [[8.1, 6.0, 14, 9.6, "#f4f2ee", -1], [72.7, 6.4, 13, 9.6, "#1fae4e", 0], [45.3, 57.8, 12, 9.4, "#e8343b", 0],
+                 [27.8, 90.8, 13, 10.2, "#e8343b", 0], [88.9, 91.8, 12, 9.6, "#efb7d6", 0]];   // x, y, w, h (%), colour, tilt
+const DICE = [[33.1, 18.2, "#f4f4f4", "#111", "2", 0], [57.6, 64.4, "#4aa3e8", "#fff", "2", -6]];
 const board = document.getElementById("board"), tip = document.getElementById("tip");
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
-// game symbols in the rules text: [energy 2] -> "2 energy", [might] -> "might", [Keyword] -> bold
-// the card data runs abilities together ("…point.)The third…"): each one on its own line
-const rules = (t) => esc(t).replace(/([.)])(?=[A-Z\[])/g, "$1<br>").replace(/\[energy (\d+)\]/g, "<b>$1 energy</b>").replace(/\[rune (\w+)\]/g, "<b>$1 rune</b>")
-  .replace(/\[(might|power|exhaust)\]/g, "<b>$1</b>").replace(/\[([^\]]+)\]/g, "<b>$1</b>");
+// the rules text as the extension shows it: [energy 3] -> a numbered circle, [rune fury] -> a Fury rune label,
+// [exhaust] -> ⟳, [might] -> Might, [Keyword] -> bold; abilities the data runs together start on a new line
+const RUNE = { fury: "Fury", calm: "Calm", mind: "Mind", body: "Body", chaos: "Chaos", order: "Order", rainbow: "any", "": "any" };
+function sym(tok) {
+  const t = tok.toLowerCase(); let m;
+  if ((m = t.match(/^(?:energy )?(\d+)$/))) return `<span class="sym en">${m[1]}</span>`;
+  if ((m = t.match(/^rune ?(\w*)$/)) && m[1] in RUNE) return `<span class="sym rn ${m[1] || "rainbow"}">${RUNE[m[1]]} rune</span>`;
+  if (t === "exhaust" || t === "tap") return '<span class="sym ex">⟳</span>';
+  if (t === "might" || t === "power") return `<b>${t[0].toUpperCase() + t.slice(1)}</b>`;
+  return `<b>${esc(tok)}</b>`;
+}
+const rules = (t) => t.replace(/([.)])(?=[A-Z\[])/g, "$1\n").split(/(\[[^\]]+\])/)
+  .map((p) => (/^\[[^\]]+\]$/.test(p) ? sym(p.slice(1, -1)) : esc(p))).join("").replace(/\n/g, "<br>");
 let hovered = null;
-fetch("/assets/demo-cards.json").then((r) => r.json()).then((cards) => {
-  cards.slice(0, SPOTS.length).forEach((c, i) => {
-    const [x, y, r] = SPOTS[i], el = document.createElement("div");
-    el.className = "c"; el.style.left = x + "%"; el.style.top = y + "%"; el.style.transform = `rotate(${r}deg)`;
-    el.innerHTML = `<img src="${esc(/^https?:/.test(c.image_url) ? c.image_url : "/" + c.image_url)}" alt=""><span class="pill">${esc(c.name)}</span>`;
-    const show = () => {
-      if (hovered) hovered.classList.remove("on");
-      hovered = el; el.classList.add("on");
-      const kind = [c.supertype ? `${c.type} (${c.supertype})` : c.type, (c.domains || []).join(" / "), c.rarity].filter(Boolean).join(" · ");
-      const stats = [c.energy != null && `Energy ${c.energy}`, c.might != null && `Might ${c.might}`].filter(Boolean).map((s) => `<span>${s}</span>`).join("");
-      tip.innerHTML = `<img src="${esc(/^https?:/.test(c.image_url) ? c.image_url : "/" + c.image_url)}" alt=""><div><div class="nm">${esc(c.name)}</div><div class="sb">${esc(kind)}</div>` +
-        (stats ? `<div class="st">${stats}</div>` : "") + `<div class="tx">${rules(c.text || "")}</div>` +
-        (c.flavour ? `<div class="fl">${esc(c.flavour)}</div>` : "") + `<div class="sb" style="margin-top:6px">${esc(c.set)}</div></div>`;
-      tip.classList.add("show");
-      if (getComputedStyle(tip).position === "static") return;     // phones: the tooltip sits below the board
-      const b = board.getBoundingClientRect(), e = el.getBoundingClientRect(), t = tip.getBoundingClientRect();
-      let left = e.right - b.left + 14;
-      if (left + t.width > b.width - 8) left = e.left - b.left - t.width - 14;
-      tip.style.left = Math.max(8, left) + "px";
-      tip.style.top = Math.max(8, Math.min(e.top - b.top + e.height / 2 - t.height / 2, b.height - t.height - 8)) + "px";
-    };
-    el.addEventListener("mouseenter", show);
-    el.addEventListener("click", show);
-    el.addEventListener("mouseleave", () => { el.classList.remove("on"); tip.classList.remove("show"); hovered = null; });
+function showTip(el, c) {
+  if (hovered) hovered.classList.remove("on");
+  hovered = el; el.classList.add("on");
+  const kind = [c.supertype ? `${c.type} (${c.supertype})` : c.type, (c.domains || []).join(" / "), c.rarity].filter(Boolean).join(" · ");
+  const stats = [c.energy != null && `Energy ${c.energy}`, c.might != null && `Might ${c.might}`].filter(Boolean).map((s) => `<span>${s}</span>`).join("");
+  tip.innerHTML = `<img src="${esc(/^https?:/.test(c.image_url) ? c.image_url : "/" + c.image_url)}" alt=""><div><div class="nm">${esc(c.name)}</div><div class="sb">${esc(kind)}</div>` +
+    (stats ? `<div class="st">${stats}</div>` : "") + `<div class="tx">${rules(c.text || "")}</div>` +
+    (c.flavour ? `<div class="fl">${esc(c.flavour)}</div>` : "") + `<div class="sb" style="margin-top:6px">${esc(c.set || "")}</div></div>`;
+  tip.classList.add("show");
+  if (getComputedStyle(tip).position === "static") return;     // phones: the tooltip sits below the board
+  const b = board.getBoundingClientRect(), e = el.getBoundingClientRect(), t = tip.getBoundingClientRect();
+  let left = e.right - b.left + 12;
+  if (left + t.width > b.width - 6) left = e.left - b.left - t.width - 12;
+  tip.style.left = Math.max(6, left) + "px";
+  tip.style.top = Math.max(6, Math.min(e.top - b.top + e.height / 2 - t.height / 2, b.height - t.height - 6)) + "px";
+}
+function hideTip() { tip.classList.remove("show"); if (hovered) hovered.classList.remove("on"); hovered = null; }
+for (const [x, y, w, h, col, r] of SLEEVES) {
+  const d = document.createElement("div"); d.className = "sleeve";
+  Object.assign(d.style, { left: x + "%", top: y + "%", width: w + "%", height: h + "%", background: col }); d.style.setProperty("--r", r + "deg");
+  board.appendChild(d);
+}
+fetch("/assets/board-cards.json").then((r) => r.json()).then((cards) => {
+  let named = 0;
+  for (const [ref, x, y, r, kind, under] of LAYOUT) {
+    const [group, key] = ref.split("."), c = cards[group] && cards[group][key];
+    if (!c) continue;
+    const el = document.createElement("div");
+    el.className = "c " + kind; el.style.left = x + "%"; el.style.top = y + "%"; el.style.setProperty("--r", r + "deg");
+    el.innerHTML = `<div class="face"><img src="${esc(/^https?:/.test(c.image_url) ? c.image_url : "/" + c.image_url)}" alt=""></div>` + (under ? "" : `<span class="pill">${esc(c.name)}</span>`);
+    if (under) el.style.pointerEvents = "none";                    // runes under the top one of a pile
+    else named++;
+    el.addEventListener("mouseenter", () => showTip(el, c));
+    el.addEventListener("click", (e) => { e.stopPropagation(); showTip(el, c); });
+    el.addEventListener("mouseleave", hideTip);
     board.appendChild(el);
-  });
+  }
+  for (const [x, y, bg, fg, n, r] of DICE) {
+    const d = document.createElement("div"); d.className = "die"; d.textContent = n;
+    Object.assign(d.style, { left: x + "%", top: y + "%", background: bg, color: fg }); d.style.setProperty("--r", r + "deg");
+    board.appendChild(d);
+  }
+  document.getElementById("named").textContent = `RiftEye · ${named} named`;
 });
-document.addEventListener("click", (e) => { if (!e.target.closest(".c")) { tip.classList.remove("show"); if (hovered) hovered.classList.remove("on"); hovered = null; } });
+document.addEventListener("click", (e) => { if (!e.target.closest(".c")) hideTip(); });
 for (const seg of document.querySelectorAll(".seg")) seg.addEventListener("click", (e) => {
   const b = e.target.closest("button"); if (!b) return;
+  e.preventDefault();
   for (const x of seg.children) x.classList.toggle("on", x === b);
   if (seg.dataset.set === "tip") tip.style.setProperty("--tip", b.dataset.v);
   else board.dataset[seg.dataset.set] = b.dataset.v;
