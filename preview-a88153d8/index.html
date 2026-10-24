@@ -68,20 +68,39 @@
   .card p { margin: 0; color: var(--muted); font-size: .97rem; }
 
   /* the table in the hero: a play mat, cards (some turned sideways), sleeves, rune piles, dice */
-  .hero .wrap { grid-template-columns: .9fr 1.1fr; }
+  .hero .wrap { grid-template-columns: 1fr; gap: 28px; }
+  .hero .wrap > div:first-child { max-width: 760px; }
   .stage { position: relative; }
-  .board { position: relative; aspect-ratio: 1; border-radius: 18px; overflow: hidden; border: 1px solid var(--line-2);
-           background: linear-gradient(90deg, #36363b 0 40%, #8d8b95 40% 60%, #36363b 60%); box-shadow: 0 30px 70px rgba(0, 0, 0, .5); }
-  .board::before { content: ""; position: absolute; inset: 0; background: radial-gradient(70% 60% at 50% 40%, rgba(255, 255, 255, .06), transparent 70%),
-                   radial-gradient(120% 100% at 50% 50%, transparent 60%, rgba(0, 0, 0, .35)); pointer-events: none; }
+  /* a digital game board: the opponent's half in blue, the lower half darker, battlefield and base zones outlined */
+  .board { position: relative; aspect-ratio: 2000 / 1220; border-radius: 16px; overflow: hidden; border: 1px solid var(--line-2);
+           background: linear-gradient(180deg, #1a2f57 0%, #1f3866 52%, #3a3337 52%, #322d31 100%); box-shadow: 0 30px 70px rgba(0, 0, 0, .5);
+           container-type: inline-size; }
+  .board::before { content: ""; position: absolute; inset: 0; pointer-events: none;
+                   background: radial-gradient(60% 50% at 50% 45%, rgba(120, 170, 255, .08), transparent 70%); }
+  .zone { position: absolute; border: 1px solid rgba(190, 210, 255, .16); border-radius: 4px; pointer-events: none; }
+  .zone.split { background: linear-gradient(180deg, rgba(255, 255, 255, .02) 0 50%, transparent 50%); }
+  .back { position: absolute; width: 6.5%; aspect-ratio: 744 / 1039; transform: translate(-50%, -50%) rotate(var(--r, 0deg)); border-radius: 5px;
+          pointer-events: none; background: repeating-linear-gradient(45deg, #1d5161 0 6px, #1a4857 6px 12px); border: 2px solid #3d8a99;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, .45); }
+  .back::after { content: ""; position: absolute; inset: 28% 22%; border: 2px solid rgba(200, 240, 245, .55); transform: rotate(45deg); }
+  .back.light { background: repeating-linear-gradient(45deg, #e9eef4 0 6px, #dfe6ee 6px 12px); border-color: #b9c6d4; }
+  .back.light::after { border-color: rgba(60, 100, 140, .5); }
+  .chip { position: absolute; transform: translate(-50%, -50%); z-index: 4; min-width: 3.2%; padding: .25% .6%; border-radius: 6px; text-align: center;
+          font: 800 2.1cqw/1.1 system-ui, sans-serif; background: #eef2f8; color: #14233b; box-shadow: 0 2px 6px rgba(0, 0, 0, .45); pointer-events: none; }
+  .chip.dark { background: rgba(10, 18, 32, .92); color: #fff; border: 1px solid rgba(190, 210, 255, .3); }
+  .dot { position: absolute; width: 4.2%; aspect-ratio: 1; transform: translate(-50%, -50%); border-radius: 50%; display: grid; place-items: center;
+         font: 800 2cqw/1 system-ui, sans-serif; color: #e6eefc; background: radial-gradient(circle at 40% 35%, #2c4a7e, #16284a);
+         border: 2px solid #3a5f9a; box-shadow: 0 2px 6px rgba(0, 0, 0, .4); pointer-events: none; }
+  .dot.now { border-color: var(--gold); box-shadow: 0 0 10px rgba(231, 184, 74, .8); }
+  .dot.now2 { border-color: #5fd0e8; box-shadow: 0 0 10px rgba(95, 208, 232, .8); }
   .live { position: absolute; left: 50%; transform: translateX(-50%); top: 10px; z-index: 6; white-space: nowrap; display: flex; gap: 8px; align-items: center; font-size: .78rem; color: #fff;
           text-shadow: 0 1px 3px #000; }
   .live b { background: #e5484d; border-radius: 4px; padding: 1px 6px; font-size: .7rem; letter-spacing: .05em; text-shadow: none; }
   .badge { position: absolute; left: 50%; transform: translateX(-50%); bottom: 10px; z-index: 6; white-space: nowrap; display: flex; gap: 6px; align-items: center; padding: 3px 10px 3px 5px;
            border-radius: 999px; background: rgba(8, 14, 26, .92); border: 1px solid var(--line-2); font-size: .76rem; color: var(--muted); }
   .badge img { width: 20px; height: 20px; border-radius: 50%; }
-  .c { position: absolute; width: 11.2%; aspect-ratio: 744 / 1039; transform: translate(-50%, -50%) rotate(var(--r, 0deg)); cursor: pointer; }
-  .c.t, .c.l { width: 15.4%; aspect-ratio: 1039 / 744; }
+  .c { position: absolute; width: 6.5%; aspect-ratio: 744 / 1039; transform: translate(-50%, -50%) rotate(var(--r, 0deg)); cursor: pointer; }
+  .c.t, .c.l { width: 9.1%; aspect-ratio: 1039 / 744; }
   .c .face { position: absolute; inset: 0; border-radius: 5px; }
   .c.t .face { inset: auto; left: 50%; top: 50%; width: calc(100% * 744 / 1039); height: calc(100% * 1039 / 744); transform: translate(-50%, -50%) rotate(90deg); }
   .c img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; display: block; box-shadow: 0 6px 14px rgba(0, 0, 0, .55); }
@@ -199,7 +218,7 @@
       <div id="demo">
         <div class="stage">
           <div class="board" id="board" data-outlines="all" data-labels="off">
-            <div class="live"><b>LIVE</b> Riftbound · table cam</div>
+            <div class="live"><b>LIVE</b> Riftbound · Rift Atlas</div>
             <div class="badge"><img src="/assets/favicon.png" alt=""><span id="named">RiftEye · named</span></div>
           </div>
           <div class="tip" id="tip"></div>
@@ -306,22 +325,36 @@ for (const a of document.querySelectorAll("a.store")) {
 }
 for (const k of ["discord", "x", "instagram"]) if (LINKS[k]) { const a = document.getElementById(k); a.href = LINKS[k]; a.hidden = false; }
 
-// The table in the hero: the cards of a real game, laid out as on a stream's table camera (positions in % of the
-// mat; "t" = turned sideways, "l" = a battlefield, "p" = upright), outlined and named as RiftEye does, with its tooltip.
+// The board in the hero: a real Rift Atlas game (Riven, The Exile against Lillia, Bashful Bloom), laid out as on the
+// stream: positions in % of the board; "p" upright, "t" turned sideways, "l" a landscape battlefield. Outlined and
+// named as RiftEye does, with its tooltip.
 const LAYOUT = [
-  ["left.0", 33.6, 7.8, 1, "t"], ["left.1", 33.7, 18.4, -1, "t"], ["runes.Body", 10.4, 28.5, 8, "t"],
-  ["left.2", 27.0, 36.6, 0, "p"], ["left.3", 27.4, 48.6, 0, "p"], ["left.4", 27.8, 62.4, 0, "p"],
-  ["battlefields.0", 11.8, 56.2, -14, "l"], ["left.5", 8.8, 91.7, 0, "t"],
-  ["right.0", 50.5, 36.6, 0, "p"], ["left.6", 43.2, 67.6, -2, "p"], ["right.1", 58.7, 65.0, 4, "p"],
-  ["right.6", 62.6, 76.8, -7, "p"], ["right.2", 59.4, 20.4, 1, "t"], ["right.3", 91.4, 29.5, 0, "t"],
-  ["right.4", 74.1, 37.2, 2, "t"], ["battlefields.1", 75.2, 49.9, 1, "l"], ["right.5", 75.2, 61.8, 1, "t"],
-  // rune piles: the lower runes first, so the top one lies over them
-  ["runes.Calm", 90.6, 52.4, 0, "t", 1], ["runes.Calm", 90.6, 50.2, 0, "t", 1], ["runes.Calm", 90.6, 48.0, 0, "t", 1], ["runes.Calm", 90.6, 44.2, 0, "t"],
-  ["runes.Mind", 90.6, 78.0, 0, "t", 1], ["runes.Calm", 90.6, 74.6, 0, "t", 1], ["runes.Mind", 90.6, 71.4, 0, "t", 1], ["runes.Calm", 90.6, 67.6, 0, "t", 1], ["runes.Calm", 90.6, 63.4, 0, "t"],
+  // the opponent (top): legend, gear, runes, a gear half off the screen
+  ["Sprite Fountain", 3.2, 5.6, 0, "p"], ["Lillia, Bashful Bloom", 11.0, 23.1, 0, "p"],
+  ["Mask of Foresight", 32.6, 23.6, 0, "p"], ["Mask of Foresight", 41.0, 23.6, 0, "p"],
+  ["Calm Rune", 59.8, 23.2, 0, "p"], ["Mind Rune", 63.7, 23.2, 0, "p"], ["Calm Rune", 67.6, 23.2, 0, "p"],
+  ["Calm Rune", 72.3, 23.2, 0, "p"], ["Calm Rune", 76.0, 23.2, 0, "p"], ["Calm Rune", 79.8, 23.2, 0, "p"], ["Calm Rune", 84.6, 23.2, 0, "p"],
+  // the left battlefield: Hunters' Circle, Riptide Rex on it, the attackers turned below
+  ["Hunters' Circle", 29.2, 51.8, 0, "t"], ["Riptide Rex", 28.9, 42.4, 0, "p"],
+  ["Astral Heron", 18.5, 64.3, 0, "t"], ["Astral Heron", 29.0, 63.8, 0, "t"], ["Riven, Broken Blade", 39.2, 64.2, 0, "t"],
+  // the right battlefield: Dusk Rose Lab, the opponent's units on it
+  ["Dusk Rose Lab", 69.8, 51.8, 0, "l"], ["Ravenbloom Student", 56.0, 42.2, 0, "p"], ["Ravenbloom Student", 64.4, 42.2, 0, "p"],
+  ["Sprite", 73.5, 39.8, 0, "t"], ["Sprite", 83.0, 42.2, 0, "p"],
+  // the player (bottom): runes fanned out, base units, legend
+  ["Chaos Rune", 38.5, 80.7, 0, "p"], ["Calm Rune", 36.1, 80.7, 0, "p"], ["Calm Rune", 33.6, 80.7, 0, "p"], ["Chaos Rune", 31.1, 80.7, 0, "p"],
+  ["Calm Rune", 28.6, 80.7, 0, "p"], ["Chaos Rune", 26.1, 80.7, 0, "p"], ["Chaos Rune", 23.6, 80.7, 0, "p"], ["Calm Rune", 21.2, 80.7, 0, "p"],
+  ["Chaos Rune", 18.7, 80.7, 0, "p"], ["Calm Rune", 14.4, 80.7, 0, "p"],
+  ["Gust Monk", 57.9, 80.5, 0, "p"], ["Tideturner", 66.4, 80.5, 0, "p"], ["Riven, The Exile", 88.0, 81.0, 0, "p"],
 ];
-const SLEEVES = [[8.1, 6.0, 14, 9.6, "#f4f2ee", -1], [72.7, 6.4, 13, 9.6, "#1fae4e", 0], [45.3, 57.8, 12, 9.4, "#e8343b", 0],
-                 [27.8, 90.8, 13, 10.2, "#e8343b", 0], [88.9, 91.8, 12, 9.6, "#efb7d6", 0]];   // x, y, w, h (%), colour, tilt
-const DICE = [[33.1, 18.2, "#f4f4f4", "#111", "2", 0], [57.6, 64.4, "#4aa3e8", "#fff", "2", -6]];
+const ZONES = [[9.3, 33.2, 40.0, 37.6, "split"], [49.8, 33.2, 40.0, 37.6, "split"], [9.3, 71.6, 32.8, 17.3, ""], [42.5, 71.6, 40.0, 17.3, ""],
+               [1.0, 15.0, 4.9, 16.0, ""], [93.1, 73.2, 6.0, 15.8, ""]];                         // left, top, width, height (%)
+const BACKS = [[11.1, 5.3, ""], [45.0, 4.8, ""], [52.0, 4.8, ""], [84.5, 5.7, "light"], [14.5, 96.5, "light"], [43.5, 97.5, ""], [50.5, 97.5, ""],
+               [57.3, 97.5, ""], [87.9, 96.3, ""]];
+const CHIPS = [[9.2, 10.8, "28", "dark"], [82.1, 10.8, "5", "dark"], [17.0, 92.6, "2", "dark"], [89.8, 92.6, "26", "dark"], [97.6, 93.6, "6", "dark"],
+               [28.9, 49.3, "8", ""], [56.0, 49.0, "2", ""], [64.3, 49.0, "2", ""]];
+const DOTS = [[97.1, 11.0, 0], [92.8, 14.8, 1], [97.1, 18.6, 2], [92.8, 22.3, 3], [97.1, 26.2, 4], [92.8, 30.0, 5, "now"], [97.1, 33.8, 6],
+              [92.8, 37.6, 7], [94.9, 44.1, 8], [4.1, 59.8, 8], [6.3, 66.4, 7], [1.9, 70.2, 6, "now2"], [6.3, 74.0, 5], [1.9, 77.7, 4],
+              [6.3, 81.5, 3], [1.9, 85.2, 2], [6.3, 89.0, 1], [1.9, 92.8, 0]];
 const board = document.getElementById("board"), tip = document.getElementById("tip");
 const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]);
 // the rules text as the extension shows it: [energy 3] -> a numbered circle, [rune fury] -> a Fury rune label,
@@ -342,7 +375,8 @@ function showTip(el, c) {
   if (hovered) hovered.classList.remove("on");
   hovered = el; el.classList.add("on");
   const kind = [c.supertype ? `${c.type} (${c.supertype})` : c.type, (c.domains || []).join(" / "), c.rarity].filter(Boolean).join(" · ");
-  const stats = [c.energy != null && `Energy ${c.energy}`, c.might != null && `Might ${c.might}`].filter(Boolean).map((s) => `<span>${s}</span>`).join("");
+  const playable = !/^(legend|battlefield|rune)$/i.test(c.type || "");   // some data gives legends and battlefields a 0 cost
+  const stats = playable ? [c.energy != null && `Energy ${c.energy}`, c.might != null && `Might ${c.might}`].filter(Boolean).map((s) => `<span>${s}</span>`).join("") : "";
   tip.innerHTML = `<img src="${esc(/^https?:/.test(c.image_url) ? c.image_url : "/" + c.image_url)}" alt=""><div><div class="nm">${esc(c.name)}</div><div class="sb">${esc(kind)}</div>` +
     (stats ? `<div class="st">${stats}</div>` : "") + `<div class="tx">${rules(c.text || "")}</div>` +
     (c.flavour ? `<div class="fl">${esc(c.flavour)}</div>` : "") + `<div class="sb" style="margin-top:6px">${esc(c.set || "")}</div></div>`;
@@ -355,15 +389,14 @@ function showTip(el, c) {
   tip.style.top = Math.max(6, Math.min(e.top - b.top + e.height / 2 - t.height / 2, b.height - t.height - 6)) + "px";
 }
 function hideTip() { tip.classList.remove("show"); if (hovered) hovered.classList.remove("on"); hovered = null; }
-for (const [x, y, w, h, col, r] of SLEEVES) {
-  const d = document.createElement("div"); d.className = "sleeve";
-  Object.assign(d.style, { left: x + "%", top: y + "%", width: w + "%", height: h + "%", background: col }); d.style.setProperty("--r", r + "deg");
-  board.appendChild(d);
-}
+const put = (cls, css, text) => { const d = document.createElement("div"); d.className = cls; Object.assign(d.style, css); if (text != null) d.textContent = text; board.appendChild(d); };
+for (const [x, y, w, h, k] of ZONES) put("zone " + k, { left: x + "%", top: y + "%", width: w + "%", height: h + "%" });
+for (const [x, y, k] of BACKS) put("back " + k, { left: x + "%", top: y + "%" });
+for (const [x, y, n, k] of DOTS) put("dot " + (k || ""), { left: x + "%", top: y + "%" }, n);
 fetch("/assets/board-cards.json").then((r) => r.json()).then((cards) => {
   let named = 0;
   for (const [ref, x, y, r, kind, under] of LAYOUT) {
-    const [group, key] = ref.split("."), c = cards[group] && cards[group][key];
+    const c = cards[ref];
     if (!c) continue;
     const el = document.createElement("div");
     el.className = "c " + kind; el.style.left = x + "%"; el.style.top = y + "%"; el.style.setProperty("--r", r + "deg");
@@ -375,11 +408,7 @@ fetch("/assets/board-cards.json").then((r) => r.json()).then((cards) => {
     el.addEventListener("mouseleave", hideTip);
     board.appendChild(el);
   }
-  for (const [x, y, bg, fg, n, r] of DICE) {
-    const d = document.createElement("div"); d.className = "die"; d.textContent = n;
-    Object.assign(d.style, { left: x + "%", top: y + "%", background: bg, color: fg }); d.style.setProperty("--r", r + "deg");
-    board.appendChild(d);
-  }
+  for (const [x, y, n, k] of CHIPS) put("chip " + k, { left: x + "%", top: y + "%" }, n);
   document.getElementById("named").textContent = `RiftEye · ${named} named`;
 });
 document.addEventListener("click", (e) => { if (!e.target.closest(".c")) hideTip(); });
