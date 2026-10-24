@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="robots" content="noindex, nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RiftEye: every card on the stream, one hover away</title>
 <meta name="description" content="RiftEye is a free Chrome extension that names the cards on Twitch and YouTube Riftbound streams. Hover a card to see it full size: table cameras and Rift Atlas, any language.">
@@ -11,8 +10,8 @@
 <meta property="og:image" content="https://rifteye.com/assets/social.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="/assets/favicon.png">
-<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 <style>
   /* RiftEye's colours: dark stone blue and gold (the extension uses the same) */
   :root {
@@ -195,8 +194,8 @@
 <a class="skip" href="#main">Skip to content</a>
 <nav>
   <div class="wrap">
-    <a class="logo" href="#"><img src="/assets/favicon.png" alt=""> RiftEye</a>
-    <div class="links"><a href="#watch">Watch</a><a href="#demo">Try it</a><a href="#how">How it works</a><a href="#privacy">Privacy</a><a href="/support.html">Help</a><a class="social" href="https://discord.gg/JdSgbwhDXU" target="_blank" rel="noopener" aria-label="Discord"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7ZM8.1 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7.8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg></a><a class="social" href="https://www.instagram.com/rifteye/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2ZM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></svg></a></div>
+    <a class="logo" href="#"><img src="assets/favicon.png" alt=""> RiftEye</a>
+    <div class="links"><a href="#watch">Watch</a><a href="#demo">Try it</a><a href="#how">How it works</a><a href="#privacy">Privacy</a><a href="support.html">Help</a><a class="social" href="https://discord.gg/JdSgbwhDXU" target="_blank" rel="noopener" aria-label="Discord"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7ZM8.1 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7.8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg></a><a class="social" href="https://www.instagram.com/rifteye/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2ZM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></svg></a></div>
     <a class="btn primary store" href="#">Add to Chrome</a>
   </div>
 </nav>
@@ -219,7 +218,7 @@
         <div class="stage">
           <div class="board" id="board" data-outlines="all" data-labels="off">
             <div class="live"><b>LIVE</b> Riftbound · Rift Atlas</div>
-            <div class="badge"><img src="/assets/favicon.png" alt=""><span id="named">RiftEye · named</span></div>
+            <div class="badge"><img src="assets/favicon.png" alt=""><span id="named">RiftEye · named</span></div>
           </div>
           <div class="tip" id="tip"></div>
         </div>
@@ -270,7 +269,7 @@
         <div class="card"><h3>On your computer</h3><p>Cards are recognised inside your browser, on your graphics card when it can. Video frames never leave your computer.</p></div>
         <div class="card"><h3>Nothing collected</h3><p>No account, no analytics, no ads, no tracking. Your settings stay in your browser.</p></div>
         <div class="card"><h3>Only what it needs</h3><p>RiftEye runs on Twitch and YouTube only, and downloads just card pictures and new card data.</p></div>
-        <div class="card"><h3>Open about it</h3><p>Every detail is in the <a href="/privacy.html">privacy policy</a>.</p></div>
+        <div class="card"><h3>Open about it</h3><p>Every detail is in the <a href="privacy.html">privacy policy</a>.</p></div>
       </div>
     </div>
   </section>
@@ -304,8 +303,8 @@
 
 <footer>
   <div class="wrap">
-    <a class="logo" href="#"><img src="/assets/favicon.png" alt=""> RiftEye</a>
-    <div class="fl"><a href="/support.html">Help</a><a href="/privacy.html">Privacy</a><a class="store" href="#">Chrome Web Store</a><a class="social" href="https://discord.gg/JdSgbwhDXU" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7ZM8.1 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7.8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg> Discord</a><a class="social" href="https://www.instagram.com/rifteye/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2ZM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></svg> Instagram</a><a href="mailto:rifteye@proton.me">Contact</a></div>
+    <a class="logo" href="#"><img src="assets/favicon.png" alt=""> RiftEye</a>
+    <div class="fl"><a href="support.html">Help</a><a href="privacy.html">Privacy</a><a class="store" href="#">Chrome Web Store</a><a class="social" href="https://discord.gg/JdSgbwhDXU" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.8 19.8 0 0 0 15.4 3l-.6 1.3a18.4 18.4 0 0 0-5.6 0L8.6 3a19.7 19.7 0 0 0-4.9 1.5C.6 9.1-.3 13.6.1 18.1a19.9 19.9 0 0 0 6 3l1.3-2.1c-.7-.3-1.4-.6-2-1l.5-.4a14.2 14.2 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.8 19.8 0 0 0 6-3c.5-5.2-.8-9.7-3.6-13.7ZM8.1 15.3c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm7.8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg> Discord</a><a class="social" href="https://www.instagram.com/rifteye/" target="_blank" rel="noopener"><svg class="ico" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2.2c3.2 0 3.6 0 4.8.1 3.3.1 4.8 1.7 4.9 4.9.1 1.3.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 3.2-1.7 4.8-4.9 4.9-1.3.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-3.3-.1-4.8-1.7-4.9-4.9C2.2 15.6 2.2 15.2 2.2 12s0-3.6.1-4.8C2.4 3.9 3.9 2.4 7.2 2.3 8.4 2.2 8.8 2.2 12 2.2ZM12 0C8.7 0 8.3 0 7.1.1 2.7.3.3 2.7.1 7.1 0 8.3 0 8.7 0 12s0 3.7.1 4.9c.2 4.4 2.6 6.8 7 7 1.2.1 1.6.1 4.9.1s3.7 0 4.9-.1c4.4-.2 6.8-2.6 7-7 .1-1.2.1-1.6.1-4.9s0-3.7-.1-4.9c-.2-4.4-2.6-6.8-7-7C15.7 0 15.3 0 12 0Zm0 5.8a6.2 6.2 0 1 0 0 12.4 6.2 6.2 0 0 0 0-12.4ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm6.4-11.8a1.4 1.4 0 1 0 0 2.9 1.4 1.4 0 0 0 0-2.9Z"/></svg> Instagram</a><a href="mailto:rifteye@proton.me">Contact</a></div>
     <p>RiftEye is an unofficial fan project. RiftEye isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or
        anyone officially involved in producing or managing Riot Games properties. Riot Games, and all associated properties are trademarks
        or registered trademarks of Riot Games, Inc. Card names, text and art belong to Riot Games.</p>
@@ -350,7 +349,7 @@ const ZONES = [[9.3, 33.2, 40.0, 37.6, "split"], [49.8, 33.2, 40.0, 37.6, "split
                [1.0, 15.0, 4.9, 16.0, ""], [93.1, 73.2, 6.0, 15.8, ""]];                         // left, top, width, height (%)
 const BACKS = [[11.1, 5.3, ""], [45.0, 4.8, ""], [52.0, 4.8, ""], [84.5, 5.7, "light"], [14.5, 96.5, "light"], [43.5, 97.5, ""], [50.5, 97.5, ""],
                [57.3, 97.5, ""], [87.9, 96.3, ""]];
-const CHIPS = [[9.2, 10.8, "28", "dark"], [82.1, 10.8, "5", "dark"], [17.0, 92.6, "2", "dark"], [89.8, 92.6, "26", "dark"], [97.6, 93.6, "6", "dark"],
+const CHIPS = [[9.2, 10.8, "28", "dark"], [82.1, 10.8, "5", "dark"], [17.0, 92.6, "2", "dark"], [89.8, 92.6, "26", "dark"],
                [28.9, 49.3, "8", ""], [56.0, 49.0, "2", ""], [64.3, 49.0, "2", ""]];
 const DOTS = [[97.1, 11.0, 0], [92.8, 14.8, 1], [97.1, 18.6, 2], [92.8, 22.3, 3], [97.1, 26.2, 4], [92.8, 30.0, 5, "now"], [97.1, 33.8, 6],
               [92.8, 37.6, 7], [94.9, 44.1, 8], [4.1, 59.8, 8], [6.3, 66.4, 7], [1.9, 70.2, 6, "now2"], [6.3, 74.0, 5], [1.9, 77.7, 4],
@@ -377,7 +376,7 @@ function showTip(el, c) {
   const kind = [c.supertype ? `${c.type} (${c.supertype})` : c.type, (c.domains || []).join(" / "), c.rarity].filter(Boolean).join(" · ");
   const playable = !/^(legend|battlefield|rune)$/i.test(c.type || "");   // some data gives legends and battlefields a 0 cost
   const stats = playable ? [c.energy != null && `Energy ${c.energy}`, c.might != null && `Might ${c.might}`].filter(Boolean).map((s) => `<span>${s}</span>`).join("") : "";
-  tip.innerHTML = `<img src="${esc(/^https?:/.test(c.image_url) ? c.image_url : "/" + c.image_url)}" alt=""><div><div class="nm">${esc(c.name)}</div><div class="sb">${esc(kind)}</div>` +
+  tip.innerHTML = `<img src="${esc(c.image_url)}" alt=""><div><div class="nm">${esc(c.name)}</div><div class="sb">${esc(kind)}</div>` +
     (stats ? `<div class="st">${stats}</div>` : "") + `<div class="tx">${rules(c.text || "")}</div>` +
     (c.flavour ? `<div class="fl">${esc(c.flavour)}</div>` : "") + `<div class="sb" style="margin-top:6px">${esc(c.set || "")}</div></div>`;
   tip.classList.add("show");
@@ -393,14 +392,14 @@ const put = (cls, css, text) => { const d = document.createElement("div"); d.cla
 for (const [x, y, w, h, k] of ZONES) put("zone " + k, { left: x + "%", top: y + "%", width: w + "%", height: h + "%" });
 for (const [x, y, k] of BACKS) put("back " + k, { left: x + "%", top: y + "%" });
 for (const [x, y, n, k] of DOTS) put("dot " + (k || ""), { left: x + "%", top: y + "%" }, n);
-fetch("/assets/board-cards.json").then((r) => r.json()).then((cards) => {
+fetch("assets/board-cards.json").then((r) => r.json()).then((cards) => {
   let named = 0;
   for (const [ref, x, y, r, kind, under] of LAYOUT) {
     const c = cards[ref];
     if (!c) continue;
     const el = document.createElement("div");
     el.className = "c " + kind; el.style.left = x + "%"; el.style.top = y + "%"; el.style.setProperty("--r", r + "deg");
-    el.innerHTML = `<div class="face"><img src="${esc(/^https?:/.test(c.image_url) ? c.image_url : "/" + c.image_url)}" alt=""></div>` + (under ? "" : `<span class="pill">${esc(c.name)}</span>`);
+    el.innerHTML = `<div class="face"><img src="${esc(c.image_url)}" alt=""></div>` + (under ? "" : `<span class="pill">${esc(c.name)}</span>`);
     if (under) el.style.pointerEvents = "none";                    // runes under the top one of a pile
     else named++;
     el.addEventListener("mouseenter", () => showTip(el, c));
