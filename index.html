@@ -131,9 +131,14 @@
   .tip .sym { display: inline-block; vertical-align: 1px; margin: 0 2px; font-weight: 700; line-height: 1; white-space: nowrap; }
   .tip .sym.en { min-width: calc(17px * var(--tip)); height: calc(17px * var(--tip)); padding: 0 3px; border-radius: 999px; text-align: center;
                  line-height: calc(17px * var(--tip)); font-size: calc(11px * var(--tip)); background: #e9eef7; color: #0b1322; }
-  .tip .sym.rn { padding: 1px 6px; border-radius: 6px; font-size: calc(11px * var(--tip)); color: #fff; background: #5d6b84; }
-  .tip .sym.fury { background: #c8323a; } .tip .sym.calm { background: #2f9a50; } .tip .sym.mind { background: #2f6fd6; }
-  .tip .sym.body { background: #d9761e; } .tip .sym.chaos { background: #7d3fc8; } .tip .sym.order { background: #c9a21f; color: #1b1400; }
+  /* the rune icons: the any-rune bolt in each domain's colour */
+  .tip .sym.rn { width: calc(16px * var(--tip)); height: calc(16px * var(--tip)); vertical-align: -3px; }
+  .tip .sym.rn.fury{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 10.6 9.6 2.2h6.2l-5 6.6h4.4l-1.6 2.1H8.3l1.6-2.1H8.1L5.3 12.4z' fill='%23ee4a4f'/%3E%3Cpath d='M16.8 9.4 10.4 17.8H4.2l5-6.6H4.8l1.6-2.1h5.3L10.1 11.2h1.8l2.8-3.6z' fill='%23b3242c'/%3E%3C/svg%3E") center/contain no-repeat}
+  .tip .sym.rn.calm{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 10.6 9.6 2.2h6.2l-5 6.6h4.4l-1.6 2.1H8.3l1.6-2.1H8.1L5.3 12.4z' fill='%2345c06a'/%3E%3Cpath d='M16.8 9.4 10.4 17.8H4.2l5-6.6H4.8l1.6-2.1h5.3L10.1 11.2h1.8l2.8-3.6z' fill='%2322803f'/%3E%3C/svg%3E") center/contain no-repeat}
+  .tip .sym.rn.mind{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 10.6 9.6 2.2h6.2l-5 6.6h4.4l-1.6 2.1H8.3l1.6-2.1H8.1L5.3 12.4z' fill='%234a8ff2'/%3E%3Cpath d='M16.8 9.4 10.4 17.8H4.2l5-6.6H4.8l1.6-2.1h5.3L10.1 11.2h1.8l2.8-3.6z' fill='%232456ba'/%3E%3C/svg%3E") center/contain no-repeat}
+  .tip .sym.rn.body{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 10.6 9.6 2.2h6.2l-5 6.6h4.4l-1.6 2.1H8.3l1.6-2.1H8.1L5.3 12.4z' fill='%23f39234'/%3E%3Cpath d='M16.8 9.4 10.4 17.8H4.2l5-6.6H4.8l1.6-2.1h5.3L10.1 11.2h1.8l2.8-3.6z' fill='%23b85d12'/%3E%3C/svg%3E") center/contain no-repeat}
+  .tip .sym.rn.chaos{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 10.6 9.6 2.2h6.2l-5 6.6h4.4l-1.6 2.1H8.3l1.6-2.1H8.1L5.3 12.4z' fill='%23a160ea'/%3E%3Cpath d='M16.8 9.4 10.4 17.8H4.2l5-6.6H4.8l1.6-2.1h5.3L10.1 11.2h1.8l2.8-3.6z' fill='%236a30b0'/%3E%3C/svg%3E") center/contain no-repeat}
+  .tip .sym.rn.order{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M3.2 10.6 9.6 2.2h6.2l-5 6.6h4.4l-1.6 2.1H8.3l1.6-2.1H8.1L5.3 12.4z' fill='%23f3c93a'/%3E%3Cpath d='M16.8 9.4 10.4 17.8H4.2l5-6.6H4.8l1.6-2.1h5.3L10.1 11.2h1.8l2.8-3.6z' fill='%23b8901a'/%3E%3C/svg%3E") center/contain no-repeat}
   .tip .sym.rw { width: calc(16px * var(--tip)); height: calc(16px * var(--tip)); vertical-align: -3px; background: url("data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 20 20%22%3E%3Cdefs%3E%3ClinearGradient id=%22a%22 x1=%220%22 y1=%220%22 x2=%221%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%23e8323a%22/%3E%3Cstop offset=%22.55%22 stop-color=%22%23f28c1e%22/%3E%3Cstop offset=%221%22 stop-color=%22%23f5c518%22/%3E%3C/linearGradient%3E%3ClinearGradient id=%22b%22 x1=%221%22 y1=%220%22 x2=%220%22 y2=%221%22%3E%3Cstop offset=%220%22 stop-color=%22%232fae4e%22/%3E%3Cstop offset=%22.55%22 stop-color=%22%232f6fd6%22/%3E%3Cstop offset=%221%22 stop-color=%22%237d3fc8%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d=%22M3.2 10.6 9.6 2.2h6.2l-5 6.6h4.4l-1.6 2.1H8.3l1.6-2.1H8.1L5.3 12.4z%22 fill=%22url%28%23a%29%22/%3E%3Cpath d=%22M16.8 9.4 10.4 17.8H4.2l5-6.6H4.8l1.6-2.1h5.3L10.1 11.2h1.8l2.8-3.6z%22 fill=%22url%28%23b%29%22/%3E%3C/svg%3E") center / contain no-repeat; }
   .tip .sym.ex { color: var(--gold); font-size: calc(14px * var(--tip)); }
   .controls { display: flex; flex-wrap: wrap; gap: 10px 18px; align-items: center; margin-top: 14px; }
@@ -363,7 +368,7 @@ function sym(tok) {
   const t = tok.toLowerCase(); let m;
   if ((m = t.match(/^(?:energy )?(\d+)$/))) return `<span class="sym en">${m[1]}</span>`;
   if ((m = t.match(/^rune ?(\w*)$/)) && (m[1] === "rainbow" || m[1] === "")) return '<span class="sym rw" title="any rune" aria-label="any rune"></span>';
-  if (m && m[1] in RUNE) return `<span class="sym rn ${m[1]}">${RUNE[m[1]]} rune</span>`;
+  if (m && m[1] in RUNE) return `<span class="sym rn ${m[1]}" title="${RUNE[m[1]]} rune" aria-label="${RUNE[m[1]]} rune"></span>`;
   if (t === "exhaust" || t === "tap") return '<span class="sym ex">⟳</span>';
   if (t === "might" || t === "power") return `<b>${t[0].toUpperCase() + t.slice(1)}</b>`;
   return `<b>${esc(tok)}</b>`;
